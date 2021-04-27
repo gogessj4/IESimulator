@@ -20,7 +20,7 @@ namespace BackSimulator.Controllers
         [HttpPut("sendbusinessevent")]
         public async Task<IActionResult> SendBusinessEvent()
         {
-            await issueEngineSA.SendNewBusinessEvent("Condition1", new List<NewEventFact>());
+            await issueEngineSA.SendNewBusinessEvent("EventA", new List<NewEventFact>());
             return Ok();
         }
     }

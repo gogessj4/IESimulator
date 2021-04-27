@@ -40,13 +40,6 @@ namespace BackSimulator
             RootingTopology.Configure(Configuration);
 
             services.AddSwaggerGen();
-
-            // send event
-            var serviceProvider = services.BuildServiceProvider();
-            var issueEngineSA = serviceProvider.GetService<IMessageSA>();
-            Task.Run(() => issueEngineSA.SendNewBusinessEvent("EventA",new List<NewEventFact>()));
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +56,7 @@ namespace BackSimulator
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "IE TestCase API");
-                c.RoutePrefix = String.Empty;
+                c.RoutePrefix = String.Empty;   
             });
 
             app.UseRouting();
